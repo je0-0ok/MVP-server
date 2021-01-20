@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container">
+    <div class="content_box" style="text-align: center;">
+        <table class="table" style="text-align: center;">
+            <thead class="thead-light">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>날짜</th>
+            </tr>
+            </thead>
+            <tbody class="text-dark">
+            {% for board1 in board_list %}
+            <tr>
+                <td>{{board1.pk}}</td>
+                <td>{{board1.title></td>
+                <td>{{board1.context}}</td>
+                <td>{{board1.date}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <form method="post" style="max-width: 1500px; margin: 2rem auto;">
+        {% csrf_token %}
+        <table class="table" >
+            <tbody class="text-dark">
+            <tr>
+                <td>{% bootstrap_form titleForm %}</td>
+                <td>{% bootstrap_form contextForm %}</td>
+                <td>{% bootstrap_form dateForm %}</td>
+                <td><input type="submit" class="btn1" value="수정완료"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endblock %}

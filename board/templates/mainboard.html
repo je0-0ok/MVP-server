@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="container">
+    <div class="content_box" style="text-align: center;">
+        <table class="table" style="text-align: center;">
+            <thead class="thead-light">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>날짜</th>
+                <th>기타</th>
+            </tr>
+            </thead>
+            <tbody class="text-dark">
+            {% for board in board_list %}
+            <tr>
+                <td>{{board.pk}}</td>
+                <td>{{board.title}}</td>
+                <td>{{board.context}}</td>
+                <td>{{board.date}}</td>
+                <td><button class="btn btn-danger rounded-pill" onclick="location.href='/{{ board.pk }}/delete/'">삭제</button></td>
+                <td><button class="btn btn-secondary rounded-pill" onclick="location.href='/{{ board.pk }}/edit/'">수정</button>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <form method="post" style="max-width: 1500px; margin: 2rem auto;">
+        {% csrf_token %}
+        <table class="table" >
+            <tbody class="text-dark">
+            <tr>
+                <td>{% bootstrap_form titleForm %}</td>
+                <td>{% bootstrap_form contextForm %}</td>
+                <td>{% bootstrap_form dateForm %}</td>
+                <td><input type="submit" class="btn btn-primary rounded-pill mt-3" value="POST"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endblock %}
