@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.db import models
-# Create your views here.
 from .forms import *
+from django.contrib.auth.decorators import login_required
+
 
 def postaddview(request):
     if request.method == "POST":
@@ -59,3 +60,6 @@ def edit(request, pk):
                 'board_list': board_list
             }
             return render(request, 'edit.html', context)
+
+
+    

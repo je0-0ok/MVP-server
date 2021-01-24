@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'board',
     'accounts',
+    'comment.apps.CommentConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

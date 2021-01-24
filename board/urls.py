@@ -11,3 +11,4 @@ urlpatterns = [
     path('<int:pk>/delete/', postdelete, name='postdelete'),
     path('<int:pk>/edit/', edit, name='edit'),
 ]
+

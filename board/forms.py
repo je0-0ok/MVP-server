@@ -16,4 +16,3 @@ class DateForm(ModelForm):
         model = Board
         fields = ['date']
 
-
